@@ -1,0 +1,7 @@
+accelerate==0.25.0
+peft==0.7.1
+torch==2.1.2
+tqdm==4.66.1
+transformers==4.33.1
+wandb
+sentencepiece
