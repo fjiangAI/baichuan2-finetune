@@ -1,26 +1,28 @@
 import json
 
-# 文件路径
-input_file = 'belle_chat_ramdon_10k.json'
-test_output_file = 'test.json'
-train_output_file = 'train.json'
+# File paths
+input_file = 'belle_chat_ramdon_10k.json'  # Input file containing the data
+test_output_file = 'test.json'  # Output file for the test dataset
+train_output_file = 'train.json'  # Output file for the training dataset
 
-# 读取数据
+# Reading the data
 with open(input_file, 'r', encoding='utf-8') as file:
-    data = json.load(file)
+    data = json.load(file)  # Load data from the JSON file
 
-# 确保数据是一个列表并且有足够的元素
+# Ensure the data is a list and has more than 1000 elements
 if isinstance(data, list) and len(data) > 1000:
-    # 分割数据
-    test_set = data[:1000]
-    train_set = data[1000:]
+    # Splitting the data
+    test_set = data[:1000]  # First 1000 entries for the test set
+    train_set = data[1000:]  # Remaining entries for the training set
 
-    # 保存测试集
+    # Saving the test dataset
     with open(test_output_file, 'w', encoding='utf-8') as file:
-        json.dump(test_set, file, ensure_ascii=False, indent=4)
+        json.dump(test_set, file, ensure_ascii=False, indent=4)  # Write the test data to a JSON file
     
-    # 保存训练集
+    # Saving the training dataset
     with open(train_output_file, 'w', encoding='utf-8') as file:
-        json.dump(train_set, file, ensure_ascii=False, indent=4)
+        json.dump(train_set, file, ensure_ascii=False, indent=4)  # Write the training data to a JSON file
 else:
-    print("数据不是一个列表或者列表中的元素少于1000个。")
+    # Print an error message if the data isn't a list or doesn't have enough elements
+    print("The data is not a list or has fewer than 1000 elements.")
+
